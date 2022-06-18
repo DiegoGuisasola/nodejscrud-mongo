@@ -5,9 +5,14 @@ const router = express.Router();
 const Task = require('../models/task');
 
 // Routes
-router.get('/', (req, res) => {
-    // res.send('Hello world');
-    res.render('index');
+router.get('/', async(req, res) => {
+    const tasks = await Task.find();
+    // console.log(tasks);
+
+    // Update table
+    res.render('index', {
+        tasks // tasks: tasks
+    });
 });
 
 router.post('/add', async (req, res) => {

@@ -1,5 +1,9 @@
 <%- include('partials/_header') %>
 
+<!-- <pre>
+    <%= tasks %>
+</pre> -->
+
     <div class="container">
         <div class="row">
 
@@ -33,6 +37,7 @@
             <!-- LIST -->
             <div class="col-md-7">
                 <table class="table table-bordered table-hover">
+
                     <thead> <!-- Cabecera -->
                         <tr> <!-- Fila conformada por -->
                             <th>N°</th> <!-- Multiples cabeceras -->
@@ -41,6 +46,22 @@
                             <th>Operation</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        <% for(var i=0; i < tasks.length; i++){ %>
+                            <tr>
+                                <td><%= i + 1%></td>
+                                <td><%= tasks[i].title %></td>
+                                <td><%= tasks[i].description %></td>
+                                <td>
+                                    <a href="" class="btn btn-dark">Done</a>
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <a href="" class="btn btn-info">Edit</a>
+                                </td>
+                            </tr>
+                        <% } %>
+
+                    </tbody>
 
                 </table>
             </div>
