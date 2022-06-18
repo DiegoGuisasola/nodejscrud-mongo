@@ -18,7 +18,8 @@ router.get('/', async(req, res) => {
 router.post('/add', async (req, res) => {
     const task = new Task(req.body);
     await task.save();
-    res.send('received');
+    // res.send('received');
+    res.redirect('/')
 });
 
 module.exports = router;
