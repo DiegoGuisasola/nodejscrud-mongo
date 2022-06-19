@@ -1,26 +1,22 @@
-CRUD App created using the following stack:
+## CRUD App 
 
-Backend:
-NodeJS
-Express
-MongoDB (local) & MongoDB Atlas (cloud)
+### Link:
+https://nodejscrud-mongo.herokuapp.com
 
-Frontend:
-Ejs
-Bootstrap 5
+Created using the following stack:
 
-Deployment:
-Github
-Heroku
+### Backend:
+1. NodeJS
+1. Express
+1. MongoDB (local) & MongoDB Atlas (cloud)
 
-"dependencies":
-    "dotenv": "^16.0.1",
-    "ejs": "^3.1.8",
-    "express": "^4.18.1",
-    "mongoose": "^6.4.0",
-    "morgan": "^1.10.0"
+### Frontend:
+1. Ejs
+1. Bootstrap 5
 
-"devDependencies":
-    "nodemon": "^2.0.16"
+### Source Control
+1. Git
+1. Github
 
-
+### Deployment:
+1. Heroku
