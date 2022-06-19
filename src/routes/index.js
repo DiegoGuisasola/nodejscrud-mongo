@@ -35,6 +35,21 @@ router.get('/turn/:id', async (req, res) => {
     res.redirect('/');
 });
 
+router.get('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    const task = await Task.findById(id);
+    res.render('edit', {
+        task
+    });
+    // res.redirect('/');
+});
+
+router.post('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    await Task.update({_id: id}, req.body);
+    res.redirect('/');
+});
+
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params;
     await Task.remove({ _id: id});
