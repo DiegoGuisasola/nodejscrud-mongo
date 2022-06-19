@@ -6,7 +6,10 @@ const mongoose = require('mongoose');
 // Import local env var
 require('dotenv').config({ path: 'variables.env'})
 
-console.log(process.env.DB_URL)
+
+// Deployment
+const host = process.env.HOST || '0.0.0.0'; // Lee de variables.env
+const port = process.env.PORT || 3000;      // Lee de Heroku
 
 const app = express();
 
@@ -19,7 +22,7 @@ mongoose.connect(process.env.DB_URL)
 const indexRoutes = require('./routes/index');
 
 // Settings
-app.set('port', process.env.PORT || 3000)
+app.set('port', port);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
@@ -31,6 +34,6 @@ app.use(morgan('dev'));
 app.use('/', indexRoutes);
 
 // Start the server
-app.listen(app.get('port'), () => {
+app.listen(port, host, () => {
     console.log(`Server on port ${app.get('port')}`);
 });
