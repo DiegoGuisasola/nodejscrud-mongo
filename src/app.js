@@ -3,10 +3,15 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
+// Import local env var
+require('dotenv').config({ path: 'variables.env'})
+
+console.log(process.env.DB_URL)
+
 const app = express();
 
 // Coonecting to DB
-mongoose.connect('mongodb://localhost/crud-mongo')
+mongoose.connect(process.env.DB_URL)
     .then(db => console.log('Db connected'))
     .catch(err => console.log(err));
 
