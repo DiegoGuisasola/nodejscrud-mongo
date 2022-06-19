@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 // Import local env var
-require('dotenv').config({ path: 'variables.env'})
+require('dotenv').config()
 
 
 // Deployment
@@ -18,6 +18,8 @@ mongoose.connect(process.env.DB_URL)
     .then(db => console.log('Db connected'))
     .catch(err => console.log(err));
 
+
+console.log("Database_URL", process.env.DB_URL);
 // Import routes
 const indexRoutes = require('./routes/index');
 
